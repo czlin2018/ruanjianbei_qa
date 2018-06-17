@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "macros.html" import render_pagination %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<div class='jumbotron'>
+    <h1> Searching
+    
+    <form action='/data' method='post'>
+        <div class='input-group'>
+            <span class='input-group-addon' id='basic-addon1'>@</span>
+            <input type='text' name='finame' aria-describedby='basic-addon1'>
+        </div>
+    <button class='btn btn-primary btn-lg' type='submit'> Submit </button>
+    </form>
+
+    </h1>
+
+</div>
+
+<div class='table-responsive'>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>response</th>
+                <th> name</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if form %}
+            <td> {{form.finame}}</td>
+            {% endif %}
+        
+            {% if save_form %}
+            
+            <td> {{ save_form}}</td>
+                
+            {% endif %}
+
+            <td> 456 </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}

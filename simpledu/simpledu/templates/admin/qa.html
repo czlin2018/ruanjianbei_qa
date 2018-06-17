@@ -1,0 +1,57 @@
+{% extends "admin/index.html" %}
+{% from "macros.html" import render_pagination %}
+
+{% block title %}
+Admin - QA
+{% endblock %}
+
+{%block operation %}
+<a href="#" type='button' class='btn btn-primary'>
+    <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
+
+    Add Qa
+</a>
+{% endblock %}
+
+{% block admin %}
+<table class='table'>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Q_Name</th>
+            <th>topic</th>
+            <th>keys</th>
+            <th>A_Name</th>
+            <th>url </th>
+        </tr>
+        <tbody>
+            {% for qa in pagination.items %}
+            <tr>
+                <td> {{ qa.id }}</td>
+                <td> {{ qa.Q_name}} </td>
+                <td> {{ qa.A_name }} </td>
+                <td> {{ qa.topic }}</td>
+                <td> {{ qa.Url }}</td>
+                
+                <td>
+                    <div class='btn-group' role='group'>
+                        <a href='{{ url_for('admin.edit_QA', qa_id=qa.id )}} ', type='button', class='btn btn-default'>
+
+                            edit
+                        </a>
+                        <a href='{{ url_for('admin.delete_qa', qa_id=qa.id)}}', type='button', class='btn btn-default'>
+                         delete
+                    </a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </thead>
+</table>
+
+{{ render_pagination(pagination, 'admin.qa') }}
+
+{% endblock %}
+
+

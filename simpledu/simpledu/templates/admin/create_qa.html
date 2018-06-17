@@ -1,0 +1,13 @@
+{% extends "admin/index.html" %}
+{% from "macros.html" import render_form %}
+
+{% block admin %}
+<h4> add </h4>
+
+{{ render_form(form, url_for('admin.create_qa')) }}
+
+{% endblock %}
+
+
+
+

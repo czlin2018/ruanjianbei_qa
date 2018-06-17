@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-3">
+    <h4>Mamage</h4>
+    <div class="list-group">
+      <a href="{{ url_for('admin.qa') }}" class="list-group-item">Edit&delete</a>
+      <a href="{{ url_for('admin.create_qa') }}" class="list-group-item">Add</a>
+    </div>
+
+    {% block operation %}{% endblock %}
+  </div>
+  <div class="col-md-9">
+    {% block admin %}{% endblock %}
+  </div>
+</div>
+{% endblock %}
